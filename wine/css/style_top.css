@@ -1,0 +1,237 @@
+@charset "UTF-8";
+
+html {
+    font-size: 100%;
+}
+
+body {
+    color: #5f5f5f;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logo { /*ヘッダー*/
+    width: 100px;
+}
+
+.navbar {
+    display: flex; /*横並びの指定*/
+    font-size: 1rem; /*フォントサイズの指定*/
+    margin-top: 55px; /*上マージンの指定*/
+    list-style: none; /*箇条書きマークを消す*/
+}
+
+.navbar li {
+    margin-left: 35px; /*左マージンの指定*/
+}
+
+.navbar a {
+    color: white; /*aタグの文字色を指定*/
+}
+
+.navbar a:hover { /*aタグホバー時の指定*/
+    color: #1ec247;
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-title {
+    font-size: 7rem;
+    text-align: center;
+    color: white;
+}
+
+.bg-img { /*背景画像*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#wine {
+    background-image: url(../images/wine1.jpg);
+    min-height: 100vh;
+}
+
+.menu-wrapper {
+    margin-top: 10%;
+}
+
+.grid {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));/*３つ同じ値が並ぶ時などrepeat()1fr 1fr 1fr;*/
+    margin-top: 6%;                 /*minmax:最小値の指定：これ以上は小さく表示しない*/
+    margin-bottom:50px;
+}
+
+@media(max-width: 600px){
+    .menu-wrapper{
+        margin-top: 40%;
+    }
+    .page-title {
+        font-size: 5rem;
+    }
+}
+
+/*画面幅が600pxより大きい時、スマホ用ナビを消す*/
+.sp-navbar {
+    display: none;
+}
+
+/*画面幅が600pxより大きい時、ハンバーガーメニューを消す*/
+#hamburger-menu {
+    display: none;
+}
+
+@media(max-width: 600px) {
+    /*通常のナビバーを消す*/
+    .navbar{
+        display: none;
+    }
+
+    /*ハンバーガーメニューの大きさや配置を指定*/
+    #hamburger-menu {
+        position: relative;
+        display: block;
+        width: 30px;
+        height: 25px;
+        margin: 50px;
+        cursor: pointer;
+    }
+
+    /*ハンバーガーメニューの真ん中の線を表示*/
+    #hamburger-menu span {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #5f5f5f;
+        transform: translateY(-50%);
+    }
+
+    /*ハンバーガーメニューの上下の線を表示*/
+     #hamburger-menu::before,
+     #hamburger-menu::after {
+        content:"";
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #5f5f5f;
+     }
+
+     /*ハンバーガーメニューの上の線の位置を指定*/
+     #hamburger-menu::before {
+        top: 0;
+     }
+
+     /*ハンバーガーメニューの下の線の位置を指定*/
+     #hamburger-menu::after {
+        bottom: 0;
+     }
+
+     /*スマホ用ナビバーの表示指定
+     z-indexで全面に表示、
+     opacity:0で透過させて初期状態では表示しない
+     transform: translate(-100%)で画面の外に出す*/
+     .sp-navbar {
+        z-index: 1;
+        position:fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        display: block;
+        background-color: rgba(0,0,0,.8);
+        transition: all.2s ease-in-out;
+        opacity:0;
+        transform: translate(-100%);
+      }
+    
+    /* スマホ用ナビバーの表示位置指定 */
+      .sp-navbar ul {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        list-style: none;
+      }
+    
+      /* ナビバーリストの位置調整、カーソルの変更 */
+      .sp-navbar li {
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+      }
+    
+      /* 閉じるボタンの位置を下げる */
+      .sp-navbar li:nth-last-child(2) {
+        margin-bottom: 60px;
+      }
+    
+      /* 閉じるボタンの色変更 */
+      .sp-navbar li span {
+        color: #fff;
+      }
+    
+      /* ナビバーリストの余白をあけてタップしやすくする */
+      .sp-navbar li a, .sp-nav li span {
+        display: block;
+        padding: 20px 0;
+        color: #fff;
+      }
+    
+      /* 「閉じる」の文字を右に移動し、×印とかぶらないようにする */
+      .sp-navbar .close {
+        position:relative;
+        padding-left: 20px;
+      }
+    
+      /* ×印を表示させる。この時点では重なった横線 */
+      .sp-navbar .close::before,
+      .sp-navbar .close::after {
+        content:'';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        display: block;
+        width: 16px;
+        height: 1px;
+        background: #fff;
+      }
+    
+      /* 横線をbeforeとafterでそれぞれ逆方向に傾けて×印を表現 */
+      .sp-navbar .close::before {
+        transform: rotate(45deg);
+      }
+    
+      .sp-navbar .close::after {
+        transform: rotate(-45deg);
+      }
+    
+      /* jQueryでつけたクラスに対して透過を０にする */
+      .open {
+        transform: translateY(0);
+        opacity:1;
+      }
+    
+}

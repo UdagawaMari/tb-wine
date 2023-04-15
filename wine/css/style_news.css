@@ -1,0 +1,38 @@
+@import url(../css/sanitize.css);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap');
+
+body {
+    background-color: #e4d8ec;
+    padding: 10px;
+    font-size: 14px;
+    color: #4e4848;
+}
+
+h1 {
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    margin: 0 auto;
+    background-color: #7b29c3;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.wine-news-posts {
+    max-width: 800px;
+    height: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    margin: 0 auto;
+    padding: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .wine-news-posts {
+        height: 500px;
+        float: none;
+        display: block;
+        margin: 0 auto;
+    }
+}

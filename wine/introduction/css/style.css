@@ -1,0 +1,71 @@
+@import url(../css/sanitize.css);
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap');
+
+body {
+    background-color: #e4d8ec;
+    padding: 10px;
+    font-size: 14px;
+    color: #4e4848;
+}
+
+.introduction {
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    margin: 0 auto;
+}
+
+header {
+    background-color: #7b29c3;
+    padding: 10px;
+    color: #fff;
+}
+
+header h1 {
+    margin: 0;
+    text-align: center;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.container {
+    max-width: 800px;
+    height: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    margin: 0 auto;
+}
+.information h1 {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 10px, 10px;
+    padding: 10px;
+    float: left;
+}
+.discription {
+    clear: left;
+ }
+.discription img{
+    float: left;
+    margin: 0 10px 10px 0;
+    transition-property: opacity;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+
+footer {
+    text-align: center;
+    font-size: 80%; 
+}
+
+@media only screen and (max-width: 600px) {
+    .discription img {
+        float: none;
+        display: block;
+        margin: 0 auto;
+    }
+    .container {
+        height: 500px;
+    }
+    .information h1 {
+        font-size: 14px;
+    }
+}
